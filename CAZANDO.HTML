@@ -8,28 +8,49 @@
     <link rel="stylesheet" href="cazando.css">
 </head>
 
-<body onload="graficarGato()">
-    <h1>Juego Cazando</h1>
-    <p>Autor: Arielz47</p>
+<body onload="iniciarJuego()">
+    <main>
+        <h1>Juego Cazando</h1>
+        <p>Autor: Arielz47</p>
+        <p>Mueve el gato morado y atrapa la comida naranja.</p>
 
-    <canvas id="areaJuego" width="500" height="500">
-        Tu navegador no admite Canvas.
-    </canvas>
+        <div class="panel">
+            <span>Puntos: <strong id="puntos">0</strong></span>
+            <span>Tiempo: <strong id="tiempo">30</strong> s</span>
+        </div>
 
-    <div class="controles">
-        <button type="button">⬆</button>
-        <br>
-        <button type="button">⬅</button>
-        <button type="button">⬇</button>
-        <button type="button">➡</button>
-    </div>
+        <canvas id="areaJuego" width="500" height="500">
+            Tu navegador no admite Canvas.
+        </canvas>
 
-    <div class="panel">
-        <span>Puntos: <span id="puntos">0</span></span>
-        <span>Tiempo: <span id="tiempo">10</span></span>
-    </div>
+        <div class="controles">
+            <button type="button"
+                    onclick="moverGato('arriba')"
+                    aria-label="Mover arriba">⬆</button>
 
-    <p id="mensaje"></p>
+            <div>
+                <button type="button"
+                        onclick="moverGato('izquierda')"
+                        aria-label="Mover a la izquierda">⬅</button>
+
+                <button type="button"
+                        onclick="moverGato('abajo')"
+                        aria-label="Mover abajo">⬇</button>
+
+                <button type="button"
+                        onclick="moverGato('derecha')"
+                        aria-label="Mover a la derecha">➡</button>
+            </div>
+        </div>
+
+        <button id="btnIniciar"
+                type="button"
+                onclick="comenzarPartida()">
+            Comenzar
+        </button>
+
+        <p id="mensaje" role="status"></p>
+    </main>
 
     <script src="cazando.js"></script>
 </body>
